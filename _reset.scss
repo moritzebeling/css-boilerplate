@@ -38,10 +38,20 @@ figure img {
 	display: block;
 }
 
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
 a,
-img,
 input, select, button, label {
 	display: inline-block;
+}
+
+p img {
+	display: inline-block;
+	vertical-align: middle;
 }
 
 p a {
@@ -68,8 +78,8 @@ html {
 }
 body {
 	text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	line-height: 1;
 }
 blockquote, q {
@@ -83,6 +93,9 @@ a {
 
 a, button, [type="button"], [type="submit"] {
 	cursor: pointer;
+}
+button, [type="submit"] {
+	all: unset;
 }
 
 input,
@@ -99,6 +112,7 @@ label {
 	outline: none;
 	vertical-align: baseline;
 	line-height: inherit;
+	text-align: inherit;
 }
 textarea {
 	overflow: auto;
@@ -155,7 +169,4 @@ table {
 }
 :focus {
   outline: 0;
-}
-li > a {
-	display: block;
 }
