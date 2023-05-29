@@ -13,3 +13,6 @@ git clone git@github.com:moritzebeling/css-boilerplate.git site/assets/scss
 ```
 
 Compile with Scss
+```
+sass --watch global.scss:test/global.css
+```
