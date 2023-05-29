@@ -1,20 +1,18 @@
+/* mixins */
+
 @use "sass:color";
 @use "sass:math";
 @use "sass:map";
 @use "sass:list";
 
-/*
-colors
-*/
+/* mixins colors */
 
 $black: #000;
 $white: #fff;
 $blue: #00f;
 $red: #f00;
 
-/*
-borders
-*/
+/* mixins borders */
 
 @function border($color: currentColor, $thickness: 1px) {
     @return $thickness solid $color;
@@ -36,9 +34,7 @@ borders
     }
 }
 
-/*
-typography
-*/
+/* mixins typography */
 
 @mixin font($style: sans) {
     @if $style ==mono {
@@ -131,9 +127,7 @@ typography
     text-overflow: ellipsis;
 }
 
-/*
-effects
-*/
+/* mixins effects */
 
 @mixin transition($property: all, $duration: 200ms, $timing: ease-in-out) {
     transition-property: $property;
@@ -154,9 +148,7 @@ effects
     text-shadow: 0 0 2px $color;
 }
 
-/*
-ui
-*/
+/* mixins ui */
 
 @mixin no-scrolling {
     overflow: hidden;
@@ -180,9 +172,7 @@ ui
     @include transition("color, background-color");
 }
 
-/*
-spacing
-*/
+/* mixins spacing */
 
 @function space($size: m) {
     $sizes: (xxs: 1px,

@@ -1,3 +1,5 @@
+/* grid */
+
 @mixin grid-columns($columns: 12) {
     grid-template-columns: repeat($columns, minmax(0, 1fr));
 }

@@ -1,6 +1,4 @@
-/*
-global
-*/
+/* helpers global */
 
 .no {
     &-scrolling {
@@ -25,17 +23,13 @@ global
     }
 }
 
-/*
-layout
-*/
+/* helpers layout */
 
 .grid {
     @include grid;
 }
 
-/*
-typography
-*/
+/* helpers typography */
 
 .font {
 
@@ -83,12 +77,4 @@ p {
     u {
         @include underline;
     }
-}
-
-/*
-debug
-*/
-
-.debug {
-    @include debug;
 }
