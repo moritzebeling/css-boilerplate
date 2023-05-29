@@ -4,13 +4,13 @@ $font-path: '/assets/fonts';
     @font-face {
         font-family: '#{$name}';
         src: url('#{$font-path}/#{$filename}.woff2') format('woff2'),
-             url('#{$font-path}/#{$filename}.woff') format('woff');
+             url('#{$font-path}/#{$filename}.woff')  format('woff');
         font-weight: $weight;
         font-style: $style;
     }
 }
 
-@include font-face('Roboto Mono', 'RobotoMono-Regular',     400);
-@include font-face('Roboto Mono', 'RobotoMono-Italic',      400, italic);
+@include font-face('Roboto Mono', 'RobotoMono-Regular', 400);
+@include font-face('Roboto Mono', 'RobotoMono-Italic',  400, italic);
 @include font-face('Roboto Mono', 'RobotoMono-BoldRegular', 700);
 @include font-face('Roboto Mono', 'RobotoMono-BoldItalic',  700, italic);

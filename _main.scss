@@ -1,29 +1,33 @@
 html {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 :root {
-	--100vh: 100vh;
-	--background: #fff;
-	--color: #000;
-	--highlight: #00f;
+    --100vh: 100vh;
+    --background: #fff;
+    --color: #000;
+    --highlight: #00f;
 }
- 
+
 body {
-	display: flex;
-	flex-direction: column;
-	min-height: var(--100vh);
-	text-size-adjust: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: var(--100vh);
+    text-size-adjust: 100%;
 
-	@include font;
-	@include size;
+    @include font;
+    @include size;
 
-	&.no-scrolling {
-		@include no-scrolling;
-	}
+    &.no-scrolling {
+        @include no-scrolling;
+    }
+
+    &.no-js .js-only {
+        display: none;
+    }
 }
 
 ::selection {
-	background: var(--highlight);
-	color: var(--background);
+    background: var(--highlight);
+    color: var(--background);
 }

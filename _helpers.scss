@@ -1,43 +1,59 @@
 .font {
 
-	&-sans {
-		@include font;
-	}
-	&-mono {
-		@include font( mono );
-	}
+    &-sans {
+        @include font;
+    }
 
-	$sizes: xs, s, m, l, xl, xxl;
-	@each $s in $sizes {
-		&-#{$s} {
-			@include size( $s );
-		}
-	}
+    &-mono {
+        @include font(mono);
+    }
+
+    $sizes: xs, s, m, l, xl, xxl;
+
+    @each $s in $sizes {
+        &-#{$s} {
+            @include size($s );
+        }
+    }
 
 }
 
 .grid {
-	@include grid;
+    @include grid;
 }
 
 pre {
-	@include padding( m );
-	@include font( mono );
-	overflow-x: scroll;
+    @include padding(m);
+    @include font(mono);
+    overflow-x: scroll;
+}
+
+code {
+    @include font(mono);
 }
 
 p {
-	a {
-		@include underline;
-	}
-	strong {
-		@include bold;
-	}
-	em {
-		@include italic;
-	}
+    a {
+        @include underline;
+    }
+
+    strong {
+        @include bold;
+    }
+
+    em {
+        @include italic;
+    }
+
+    u {
+        @include underline;
+    }
+}
+
+.no-cursor {
+    cursor: none !important;
 }
 
 .debug {
-	@include debug;
+    @include debug;
 }

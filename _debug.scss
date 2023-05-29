@@ -1,13 +1,12 @@
 @use "sass:color";
 
-@mixin debug( $color: #f00, $levels: 4 ) {
-	background-color: transparentize($color, 0.7);
-	@if $levels > 0 {
-		& > * {
-			@include debug(
-				adjust-hue( $color, 60deg ),
-				$levels - 1
-			);
-		}
-	}
+@mixin debug($color: #f00, $levels: 4) {
+    background-color: transparentize($color, 0.7);
+
+    @if $levels >0 {
+        &>* {
+            @include debug(adjust-hue($color, 60deg),
+                $levels - 1);
+        }
+    }
 }
