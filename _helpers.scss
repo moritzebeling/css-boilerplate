@@ -1,19 +1,43 @@
-@import 'mixins';
+.font {
 
-.lazyload,
-.lazyloading {
-	opacity: 0;
-}
-.lazyloaded {
-	opacity: 1;
-	transition: opacity 300ms;
+	&-sans {
+		@include font;
+	}
+	&-mono {
+		@include font( mono );
+	}
+
+	$sizes: xs, s, m, l, xl, xxl;
+	@each $s in $sizes {
+		&-#{$s} {
+			@include size( $s );
+		}
+	}
+
 }
 
-.stop-scrolling {
-	height: 100%;
-	overflow: hidden;
+.grid {
+	@include grid;
 }
 
-::selection {
-	@include select;
+pre {
+	@include padding( m );
+	@include font( mono );
+	overflow-x: scroll;
+}
+
+p {
+	a {
+		@include underline;
+	}
+	strong {
+		@include bold;
+	}
+	em {
+		@include italic;
+	}
+}
+
+.debug {
+	@include debug;
 }

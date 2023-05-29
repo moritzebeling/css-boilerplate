@@ -1,101 +1,104 @@
+@mixin grid-columns( $columns: 12 ) {
+    grid-template-columns: repeat( $columns, minmax(0, 1fr));
+}
+
+@mixin loop-grid( $i, $device: '' ) {
+    @if $i > 0 {
+        &.grid#{$device}-#{$i} {
+            @include grid-columns( $i );
+        }
+        @include loop-grid( $i - 1, $device );
+    }
+}
 
 @mixin loop-columns( $i, $device: '' ) {
     @if $i > 0 {
         > .col#{$device}-#{$i} {
-            grid-column-end: span $i;
+            grid-column-end: span max( $i );
         }
         @include loop-columns( $i - 1, $device );
+    }
+}
+
+@mixin loop-rows( $i, $device: '' ) {
+    @if $i > 0 {
+        > .row#{$device}-#{$i} {
+            grid-row-end: span max( $i );
+        }
+        @include loop-rows( $i - 1, $device );
     }
 }
 
 @mixin loop-order( $i, $device: '' ) {
     @if $i > 0 {
         > .order#{$device}-#{$i} {
-            order: $i;
+            order: max( $i );
         }
         @include loop-order( $i - 1, $device );
+    } @else {
+        > .order#{$device}-unset {
+            order: unset;
+        }
     }
 }
 
 @mixin loop-start( $i, $device: '' ) {
     @if $i > 0 {
         > .start#{$device}-#{$i} {
-            grid-column-start: $i;
+            grid-column-start: max( $i );
         }
         @include loop-start( $i - 1, $device );
+    } @else {
+        > .start#{$device}-unset {
+            grid-column-start: unset;
+        }
     }
 }
 
-.grid {
+@mixin grid( $columns: 12, $gap: 1rem ){
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    box-sizing: border-box;
-    justify-items: stretch;
-    align-items: stretch;
+    @include grid-columns( $columns );
+    gap: $gap;
 
-    @media (min-width: $device-m) {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    > * {
+        grid-column-end: span $columns;
     }
 
-    @media (min-width: $device-l) {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    $rows: 4;
+
+	@include loop-grid( $columns );
+	@include loop-columns( $columns );
+	@include loop-order( $columns );
+	@include loop-start( $columns );
+	@include loop-rows( $rows );
+
+    @media #{$media-m} {
+        @include loop-grid( $columns, '-m' );
+        @include loop-columns( $columns, '-m' );
+        @include loop-order( $columns, '-m' );
+        @include loop-start( $columns, '-m' );
+        @include loop-rows( $rows, '-m' );
     }
-
-    > [class*="col"] {
-        display: block;
-        box-sizing: border-box;
-        grid-column-end: span 1;
+    @media #{$media-l} {
+        @include loop-grid( $columns, '-l' );
+        @include loop-columns( $columns, '-l' );
+        @include loop-order( $columns, '-l' );
+        @include loop-start( $columns, '-l' );
+        @include loop-rows( $rows, '-l' );
     }
-
-    padding: 0 size( 1 );
-    gap: 0 size( 1 );
-    &.space {
-        gap: size( 1 );
-        padding: size( 1 );
+    @media #{$media-xl} {
+        @include loop-grid( $columns, '-xl' );
+        @include loop-columns( $columns, '-xl' );
+        @include loop-order( $columns, '-xl' );
+        @include loop-start( $columns, '-xl' );
+        @include loop-rows( $rows, '-xl' );
     }
-
-    @include loop-columns( 12 );
-    @include loop-order( 12 );
-    @include loop-start( 12 );
-
-    @media (min-width: $device-m) {
-        @include loop-columns( 12, '-m' );
-        @include loop-order( 12, '-m' );
-        @include loop-start( 12, '-m' );
-    }
-
-    @media (min-width: $device-l) {
-        @include loop-columns( 12, '-l' );
-        @include loop-order( 12, '-l' );
-        @include loop-start( 12, '-l' );
-    }
-
-    @media (min-width: $device-xl) {
-        @include loop-columns( 12, '-xl' );
-        @include loop-order( 12, '-xl' );
-        @include loop-start( 12, '-xl' );
-    }
-
-    @media (min-width: $device-xxl) {
-        @include loop-columns( 12, '-xxl' );
-        @include loop-order( 12, '-xxl' );
-        @include loop-start( 12, '-xxl' );
-    }
-
-}
-
-body > header,
-body > footer {
-    > nav.grid {
-        background-color: $grey;
-        > [class*="col"] {
-            vertical-align: baseline;
-            padding: size( 0.6 ) 0 size( 0.36 );
-            @include transition( background-color );
-            &:hover {
-                background-color: $white;
-            }
-        }
+    @media #{$media-xxl} {
+        @include loop-grid( $columns, '-xxl' );
+        @include loop-columns( $columns, '-xxl' );
+        @include loop-order( $columns, '-xxl' );
+        @include loop-start( $columns, '-xxl' );
+        @include loop-rows( $rows, '-xxl' );
     }
 }

@@ -1,0 +1,29 @@
+html {
+	font-size: 16px;
+}
+
+:root {
+	--100vh: 100vh;
+	--background: #fff;
+	--color: #000;
+	--highlight: #00f;
+}
+ 
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: var(--100vh);
+	text-size-adjust: 100%;
+
+	@include font;
+	@include size;
+
+	&.no-scrolling {
+		@include no-scrolling;
+	}
+}
+
+::selection {
+	background: var(--highlight);
+	color: var(--background);
+}
