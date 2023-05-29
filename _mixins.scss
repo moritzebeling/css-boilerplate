@@ -3,30 +3,14 @@
 @use "sass:map";
 @use "sass:list";
 
-@import 'grid';
-
 /*
-devices
+colors
 */
 
-$break-m: 620px;
-$break-l: 1120px;
-$break-xl: 1600px;
-$break-xxl: 2200px;
-
-$media-s: "screen and (max-width: #{$break-m - 1} )";
-$media-m: "screen and (min-width: #{$break-m} )";
-$media-l: "screen and (min-width: #{$break-l} )";
-$media-xl: "screen and (min-width: #{$break-xl} )";
-$media-xxl: "screen and (min-width: #{$break-xxl} )";
-$media-print: "print";
-
-$breakpoints: (
-    "m": $media-m,
-    "l": $media-l,
-    "xl": $media-xl,
-    "xxl": $media-xxl,
-);
+$black: #000;
+$white: #fff;
+$blue: #00f;
+$red: #f00;
 
 /*
 borders

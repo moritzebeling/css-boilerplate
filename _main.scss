@@ -13,18 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: var(--100vh);
-    text-size-adjust: 100%;
-
     @include font;
     @include size;
-
-    &.no-scrolling {
-        @include no-scrolling;
-    }
-
-    &.no-js .js-only {
-        display: none;
-    }
 }
 
 ::selection {
