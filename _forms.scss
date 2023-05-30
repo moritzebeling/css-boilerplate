@@ -1,0 +1,81 @@
+@mixin placeholder( $color: currentColor, $opacity: 0.5 ) {
+    &::placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+}
+
+@mixin field {
+    padding: space(s) space(l);
+    border: border();
+    @include rounded();
+}
+
+@mixin button {
+    padding: space(s) space(l);
+    border: border();
+    @include rounded();
+    background-color: var(--color);
+    color: var(--background);
+}
+
+form {
+
+    .honeypot {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        opacity: 0;
+        @include no-pointer-events;
+        @include no-select;
+    }
+
+    label {
+        p {
+            @include font-size(s);
+        }
+        + label {
+            margin-top: space();
+        }
+    }
+
+    /*
+    label
+    input
+        checkbox
+        color
+        date
+        datetime-local
+        email
+        file
+        hidden
+        image
+        month
+        number
+        password
+        radio
+        range
+        search
+        tel
+        text
+        time
+        url
+        week
+    textarea
+    select
+    button
+    */
+
+    input,
+    textarea,
+    select {
+        @include field;
+    }
+
+    [type="submit"],
+    [type="button"],
+    [type="reset"] {
+        @include button;
+    }
+
+}

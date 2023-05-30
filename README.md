@@ -1,6 +1,6 @@
 # CSS boilerplate
 
-## Clone this into your project
+Clone this into your project
 
 **Kirby**
 ```

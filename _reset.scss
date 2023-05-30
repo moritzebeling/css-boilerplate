@@ -100,6 +100,7 @@ button,
 button,
 [type="button"],
 [type="submit"],
+[type="reset"],
 [type="checkbox"],
 [type="radio"],
 select {
@@ -110,7 +111,8 @@ textarea {
     resize: vertical;
 }
 
-[hidden] {
+[hidden],
+[type="hidden"] {
     display: none !important;
 }
 
