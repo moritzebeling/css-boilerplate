@@ -63,3 +63,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@mixin list($type: disc, $position: outside, $image: none) {
+    list-style-type: $type;
+    list-style-position: $position;
+    list-style-image: $image;
+}

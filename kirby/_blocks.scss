@@ -1,0 +1,23 @@
+.blocks {
+
+    > * {
+        padding-left: space();
+        padding-right: space();
+        + * {
+            margin-top: 1em;
+        }
+    }
+
+    > .space {
+        &.space-s {
+            height: $m;
+        }
+        &.space-m {
+            height: $l;
+        }
+        &.space-l {
+            height: $xl;
+        }
+    }
+
+}

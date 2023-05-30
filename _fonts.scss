@@ -25,6 +25,53 @@
 
 }
 
+.text,
+.blocks {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol {
+        margin: 1em 0;
+    }
+
+    h2 {
+        @include font-size(xl);
+    }
+
+    h3 {
+        @include font-size(l);
+    }
+
+    h4,
+    h5,
+    h6,
+    figcaption,
+    cite {
+        @include font-size(s);
+    }
+
+    ul {
+        @include list( disc );
+    }
+
+    ol {
+        @include list( decimal );
+    }
+
+    figure {
+        figcaption {
+            margin-top: space( s );
+        }
+    }
+
+}
+
 p {
     a {
         @include underline;

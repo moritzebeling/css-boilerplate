@@ -100,6 +100,31 @@ $sides: top, right, bottom, left;
     object-position: $position;
 }
 
+@mixin video( $width: 16, $height: 9 ){
+    padding-top: '#{math.div($height,$width)}%';
+    position: relative;
+    iframe {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+@mixin avoid-column-break {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+@mixin avoid-page-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    page-break-before: auto;
+    page-break-after: auto;
+}
+
 /* mixins ui */
 
 @mixin no-scrolling {

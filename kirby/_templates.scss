@@ -1,0 +1,7 @@
+// <body data-template="<?= $page->template() ?>">
+
+body {
+    &[data-template="default"]{
+
+    }
+}
