@@ -1,0 +1,125 @@
+@use "sass:color";
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+
+$sides: top, right, bottom, left;
+
+/* mixins colors */
+
+@function color($color: black) {
+    @return map.get($colors, $color );
+}
+
+/* mixins borders */
+
+@function border($color: currentColor, $thickness: 1px, $style: solid) {
+    @return $thickness $style $color;
+}
+
+@mixin border($side: bottom, $color: currentColor, $thickness: 1px) {
+
+    @if list.index($sides, $side ) {
+        border-#{$side}: border($color, $thickness );
+    }
+
+    @else {
+        border: border($color, $thickness );
+    }
+}
+
+/* mixins effects */
+
+@mixin transition($property: all, $duration: 200ms, $timing: ease-in-out) {
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+}
+
+@mixin rounded($radius: space()) {
+    border-radius: $radius;
+    overflow: hidden;
+}
+
+@mixin box-shadow($color: rgba(0, 0, 0, 0.2)) {
+    box-shadow: 0 0 2px 2px $color;
+}
+
+@mixin text-shadow($color: rgba(0, 0, 0, 0.2)) {
+    text-shadow: 0 0 2px $color;
+}
+
+/* mixins spacing */
+
+@function space($size: m) {
+    @return map.get($sizes, $size );
+}
+
+@mixin padding($size: m, $side: all) {
+
+    @if list.index($sides, $side ) {
+        padding-#{$side}: space($size );
+    }
+
+    @else {
+        padding: space($size );
+    }
+}
+
+@mixin margin($size: m, $side: all) {
+
+    @if list.index($sides, $side ) {
+        margin-#{$side}: space($size );
+    }
+
+    @else {
+        margin: space($size );
+    }
+}
+
+/* mixins layout */
+
+@mixin full ($position: absolute) {
+    position: $position;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+@mixin object-fit($fit: cover, $position: center) {
+    object-fit: $fit;
+    object-position: $position;
+}
+
+/* mixins ui */
+
+@mixin no-scrolling {
+    overflow: hidden;
+}
+
+@mixin no-select {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@mixin no-pointer-events {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+}
+
+@mixin pill {
+    @include rounded;
+    background-color: var(--color);
+    color: var(--background);
+    padding: space(s) space();
+    @include transition("color, background-color");
+}

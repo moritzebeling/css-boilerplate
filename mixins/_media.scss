@@ -1,0 +1,93 @@
+/* breakpoints */
+
+@function breakpoint( $size: m ){
+    @return map-get( $breakpoints, $size );
+}
+
+@mixin sm {
+    // mobile
+    @media screen and (max-width: #{map-get( $breakpoints, m ) - 1}) {
+        @content;
+    }
+}
+
+@mixin md {
+    // tablet
+    @media screen and (min-width: #{map-get( $breakpoints, m )}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    // laptop
+    @media screen and (min-width: #{map-get( $breakpoints, l )}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    // desktop
+    @media screen and (min-width: #{map-get( $breakpoints, xl )}) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    // huge
+    @media screen and (min-width: #{map-get( $breakpoints, xxl )}) {
+        @content;
+    }
+}
+
+@mixin media( $size: m ){
+    @if $size == s {
+        @include sm {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: #{map-get( $breakpoints, $size )}) {
+            @content;
+        }
+    }
+}
+
+/* devices */
+
+@mixin portrait {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin touch {
+    @media (hover: none),
+    (pointer: coarse) {
+        @content;
+    }
+}
+
+@mixin retina {
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        @content;
+    }
+}
+
+@mixin screen {
+    @media screen {
+        @content;
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}

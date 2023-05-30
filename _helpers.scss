@@ -1,4 +1,16 @@
-/* helpers global */
+/* layout */
+
+.grid {
+    @include grid( 12 );
+}
+
+/* navigation */
+
+nav {
+    @include no-select;
+}
+
+/* global */
 
 .no {
     &-scrolling {
@@ -23,56 +35,8 @@
     }
 }
 
-/* helpers layout */
+/* debug */
 
-.grid {
-    @include grid( 12 );
-}
-
-/* helpers typography */
-
-.font {
-
-    &-sans {
-        @include font;
-    }
-
-    &-mono {
-        @include font(mono);
-    }
-
-    @each $s in $font-sizes {
-        &-#{$s} {
-            @include size($s );
-        }
-    }
-
-}
-
-pre {
-    @include padding(m);
-    @include font(mono);
-    overflow-x: scroll;
-}
-
-code {
-    @include font(mono);
-}
-
-p {
-    a {
-        @include underline;
-    }
-
-    strong {
-        @include bold;
-    }
-
-    em {
-        @include italic;
-    }
-
-    u {
-        @include underline;
-    }
+.debug {
+    @include debug;
 }

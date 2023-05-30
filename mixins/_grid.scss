@@ -1,5 +1,3 @@
-/* grid */
-
 @mixin grid-columns($columns: 12) {
     grid-template-columns: repeat($columns, minmax(0, 1fr));
 }
@@ -66,7 +64,7 @@
     }
 }
 
-@mixin grid($columns: 12, $gap: 1rem) {
+@mixin grid($columns: 12, $gap: 0) {
 
     display: grid;
     @include grid-columns($columns );
@@ -84,35 +82,17 @@
     @include loop-start($columns );
     @include loop-rows($rows );
 
-    @include md {
-        @include loop-grid($columns, '-m');
-        @include loop-columns($columns, '-m');
-        @include loop-order($columns, '-m');
-        @include loop-start($columns, '-m');
-        @include loop-rows($rows, '-m');
+    // loop through $breakpoints
+
+    @each $breakpoint, $size in $breakpoints {
+        @include media($breakpoint) {
+            $prefix: '-#{$breakpoint}';
+            @include loop-grid($columns, $prefix );
+            @include loop-columns($columns, $prefix );
+            @include loop-order($columns, $prefix );
+            @include loop-start($columns, $prefix );
+            @include loop-rows($rows, $prefix );
+        }
     }
 
-    @include lg {
-        @include loop-grid($columns, '-l');
-        @include loop-columns($columns, '-l');
-        @include loop-order($columns, '-l');
-        @include loop-start($columns, '-l');
-        @include loop-rows($rows, '-l');
-    }
-
-    @include xl {
-        @include loop-grid($columns, '-xl');
-        @include loop-columns($columns, '-xl');
-        @include loop-order($columns, '-xl');
-        @include loop-start($columns, '-xl');
-        @include loop-rows($rows, '-xl');
-    }
-
-    @include xxl {
-        @include loop-grid($columns, '-xxl');
-        @include loop-columns($columns, '-xxl');
-        @include loop-order($columns, '-xxl');
-        @include loop-start($columns, '-xxl');
-        @include loop-rows($rows, '-xxl');
-    }
 }

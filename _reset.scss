@@ -95,6 +95,14 @@ button,
 [type="button"],
 [type="submit"] {
     cursor: pointer;
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="checkbox"],
+[type="radio"],
+select {
     @include no-select;
 }
 

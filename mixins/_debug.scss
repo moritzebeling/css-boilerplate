@@ -1,5 +1,3 @@
-/* debug */
-
 @use "sass:color";
 
 @mixin debug($color: #f00, $levels: 4) {
@@ -11,8 +9,4 @@
                 $levels - 1);
         }
     }
-}
-
-.debug {
-    @include debug;
 }

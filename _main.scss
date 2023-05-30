@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     min-height: var(--100vh);
     @include font;
-    @include size;
+    @include font-size;
 }
 
 ::selection {

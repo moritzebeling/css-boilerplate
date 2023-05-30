@@ -1,0 +1,65 @@
+@mixin font-face($name, $filename, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: '#{$name}';
+        src: url('#{$font-path}/#{$filename}.woff2') format('woff2'),
+             url('#{$font-path}/#{$filename}.woff')  format('woff');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@mixin uppercase {
+    text-transform: uppercase;
+}
+
+@mixin hyphens {
+    -webkit-hyphenate-limit-chars: auto 9;
+    -webkit-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-chars: auto 9;
+    -ms-hyphenate-limit-lines: 1;
+    hyphens: auto;
+}
+
+@mixin underline($color: currentColor, $thickness: 1px, $offset: 0.2em) {
+    text-decoration: underline;
+    text-decoration-color: $color;
+    text-decoration-thickness: $thickness;
+    text-underline-offset: $offset;
+}
+
+@mixin font-variant($variant: normal) {
+    @if list.index(( tnum, tabular-nums ), $variant) {
+        font-variant-numeric: tabular-nums;
+    }
+    @if list.index(( zero, slashed-zero ), $variant) {
+        font-variant-numeric: slashed-zero;
+    }
+    @if list.index(( frac, fractions, diagonal-fractions ), $variant) {
+        font-variant-numeric: diagonal-fractions;
+    }
+    @if list.index(( sub, subscript ), $variant) {
+        font-variant-position: sub;
+    }
+    @if list.index(( sup, super, superscript ), $variant) {
+        font-variant-position: super;
+    }
+    @if list.index(( small-caps, caps, all-small-caps ), $variant) {
+        font-variant-caps: small-caps;
+    }
+}
+
+@mixin crop-line {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin crop-lines($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

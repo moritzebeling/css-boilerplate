@@ -1,18 +1,58 @@
 /* webfonts */
 
-$font-path: '/assets/fonts';
-
-@mixin font-face($name, $filename, $weight: normal, $style: normal) {
-    @font-face {
-        font-family: '#{$name}';
-        src: url('#{$font-path}/#{$filename}.woff2') format('woff2'),
-             url('#{$font-path}/#{$filename}.woff')  format('woff');
-        font-weight: $weight;
-        font-style: $style;
-    }
-}
-
 @include font-face('Roboto Mono', 'RobotoMono-Regular', 400);
 @include font-face('Roboto Mono', 'RobotoMono-Italic',  400, italic);
 @include font-face('Roboto Mono', 'RobotoMono-BoldRegular', 700);
 @include font-face('Roboto Mono', 'RobotoMono-BoldItalic',  700, italic);
+
+/* typography */
+
+.font {
+
+    &-sans {
+        @include font;
+    }
+
+    &-mono {
+        @include font(mono);
+    }
+
+    @each $s in $font-sizes {
+        &-#{$s} {
+            @include font-size($s);
+        }
+    }
+
+}
+
+p {
+    a {
+        @include underline;
+        @include transition( opacity );
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    strong {
+        @include bold;
+    }
+
+    em {
+        @include italic;
+    }
+
+    u {
+        @include underline;
+    }
+}
+
+pre {
+    @include padding(m);
+    @include font(mono);
+    overflow-x: scroll;
+}
+
+code {
+    @include font(mono);
+}
