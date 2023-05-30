@@ -10,13 +10,13 @@
 
     > .space {
         &.space-s {
-            height: $m;
+            height: space(l);
         }
         &.space-m {
-            height: $l;
+            height: space(xl);
         }
         &.space-l {
-            height: $xl;
+            height: space(xxl);
         }
     }
 

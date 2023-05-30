@@ -1,6 +1,6 @@
 # CSS boilerplate
 
-Clone this inside your project.
+## Clone this into your project
 
 **Kirby**
 ```
@@ -11,6 +11,8 @@ git clone git@github.com:moritzebeling/css-boilerplate.git assets/scss
 ```
 git clone git@github.com:moritzebeling/css-boilerplate.git src/scss
 ```
+
+## Development
 
 **Test-Compile with SCSS**
 ```
