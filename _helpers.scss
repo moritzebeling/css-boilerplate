@@ -26,7 +26,7 @@
 /* helpers layout */
 
 .grid {
-    @include grid;
+    @include grid( 12 );
 }
 
 /* helpers typography */
@@ -41,9 +41,7 @@
         @include font(mono);
     }
 
-    $sizes: xs, s, m, l, xl, xxl;
-
-    @each $s in $sizes {
+    @each $s in $font-sizes {
         &-#{$s} {
             @include size($s );
         }

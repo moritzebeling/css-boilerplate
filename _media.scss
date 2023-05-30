@@ -6,31 +6,31 @@ $break-xl: 1600px;
 $break-xxl: 2200px;
 
 @mixin sm {
-    @media screen and (max-width: #{$break-m - 1} ) {
+    @media screen and (max-width: #{$break-m - 1}) {
         @content;
     }
 }
 
 @mixin md {
-    @media screen and (min-width: #{$break-m} ) {
+    @media screen and (min-width: #{$break-m}) {
         @content;
     }
 }
 
 @mixin lg {
-    @media (min-width: #{$break-l} ) {
+    @media (min-width: #{$break-l}) {
         @content;
     }
 }
 
 @mixin xl {
-    @media screen and (min-width: #{$break-xl} ) {
+    @media screen and (min-width: #{$break-xl}) {
         @content;
     }
 }
 
 @mixin xxl {
-    @media screen and (min-width: #{$break-xxl} ) {
+    @media screen and (min-width: #{$break-xxl}) {
         @content;
     }
 }
@@ -43,6 +43,22 @@ $break-xxl: 2200px;
 
 @mixin landscape {
     @media screen and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin touch {
+
+    @media (hover: none),
+    (pointer: coarse) {
+        @content;
+    }
+}
+
+@mixin retina {
+
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
         @content;
     }
 }
