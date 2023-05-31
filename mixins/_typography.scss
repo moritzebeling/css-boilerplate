@@ -1,3 +1,5 @@
+@use "sass:list";
+
 @mixin font-face($name, $filename, $weight: normal, $style: normal) {
     @font-face {
         font-family: '#{$name}';
@@ -20,7 +22,7 @@
     hyphens: auto;
 }
 
-@mixin underline($color: currentColor, $thickness: 1px, $offset: 0.2em) {
+@mixin underline($color: currentColor, $thickness: 1px, $offset: 0.15em) {
     text-decoration: underline;
     text-decoration-color: $color;
     text-decoration-thickness: $thickness;

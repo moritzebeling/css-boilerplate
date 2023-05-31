@@ -87,7 +87,7 @@ $sides: top, right, bottom, left;
     height: 100%;
 }
 
-@mixin flex($direction: row, $justify: flex-start, $align: flex-start, $wrap: nowrap) {
+@mixin flex($direction: row, $justify: auto, $align: auto, $wrap: nowrap) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
