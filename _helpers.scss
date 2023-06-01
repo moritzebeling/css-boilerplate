@@ -35,6 +35,20 @@ nav {
     }
 }
 
+/* lazyloading with lazysizes */
+
+img {
+    &.lazyload,
+    &.lazyloading,
+    &.lazyloaded {
+        opacity: 0;
+        transition: opacity 500ms ease-in-out;
+        &.lazyloaded {
+            opacity: 1;
+        }
+    }
+}
+
 /* debug */
 
 .debug {
