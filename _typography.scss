@@ -34,9 +34,7 @@
     h4,
     h5,
     h6,
-    p,
-    ul,
-    ol {
+    p {
         margin: 1em 0;
     }
 
@@ -56,12 +54,16 @@
         @include font-size(s);
     }
 
-    ul {
-        @include list( disc );
-    }
-
-    ol {
-        @include list( decimal );
+    :not( figure ){
+        ol, ol {
+            margin: 1em 0;
+        }
+        ul {
+            @include list( disc );
+        }   
+        ol {
+            @include list( decimal );
+        }
     }
 
     figure {
@@ -77,7 +79,7 @@ p {
         @include underline;
         @include transition( opacity );
         &:hover {
-            opacity: 0.3;
+            opacity: 0.5;
         }
     }
 

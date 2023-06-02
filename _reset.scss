@@ -95,6 +95,8 @@ button,
 [type="button"],
 [type="submit"] {
     cursor: pointer;
+    outline: unset;
+    color: inherit;
 }
 
 button,
