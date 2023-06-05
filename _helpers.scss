@@ -1,3 +1,21 @@
+/* colors */
+
+.theme {
+    @each $color, $value in $colors {
+        &-#{"" + $color}{
+            --background: var(--#{$color});
+            @if $color == black {
+                --color: var(--white);
+            }
+            @else {
+                --color: var(--black);
+            }
+            background-color: var(--background);
+            color: var(--color);
+        }
+    }
+}
+
 /* layout */
 
 .grid {

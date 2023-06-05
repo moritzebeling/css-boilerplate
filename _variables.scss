@@ -42,6 +42,7 @@ $font-path: '/assets/fonts';
 
 @mixin italic {
     font-style: italic;
+    // display: inline-block;
     // transform: skewX(-10deg);
 }
 

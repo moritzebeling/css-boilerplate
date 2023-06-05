@@ -6,13 +6,13 @@
 }
 
 @mixin field {
-    padding: space(s) space(l);
+    padding: size(s) size(l);
     border: border();
     @include rounded();
 }
 
 @mixin button {
-    padding: space(s) space(l);
+    padding: size(s) size(l);
     border: border();
     @include rounded();
     background-color: var(--color);
@@ -35,7 +35,7 @@ form {
             @include font-size(s);
         }
         + label {
-            margin-top: space();
+            margin-top: size();
         }
     }
 

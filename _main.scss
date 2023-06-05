@@ -6,6 +6,9 @@ html {
 
 :root {
     --100vh: 100vh;
+    @each $color, $value in $colors {
+        --#{"" + $color}: #{$value};
+    }
     --background: #fff;
     --color: #000;
     --highlight: #00f;

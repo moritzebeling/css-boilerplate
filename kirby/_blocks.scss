@@ -1,8 +1,8 @@
 .blocks {
 
     > *:not( div, figure, iframe ) {
-        padding-left: space();
-        padding-right: space();
+        padding-left: size();
+        padding-right: size();
         + * {
             margin-top: 1em;
         }
@@ -10,13 +10,13 @@
 
     > .space {
         &.space-s {
-            height: space(l);
+            height: size(l);
         }
         &.space-m {
-            height: space(xl);
+            height: size(xl);
         }
         &.space-l {
-            height: space(xxl);
+            height: size(xxl);
         }
     }
 

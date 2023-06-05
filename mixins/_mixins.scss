@@ -36,7 +36,7 @@ $sides: top, right, bottom, left;
     transition-timing-function: $timing;
 }
 
-@mixin rounded($radius: space()) {
+@mixin rounded($radius: size()) {
     border-radius: $radius;
     overflow: hidden;
 }
@@ -51,29 +51,29 @@ $sides: top, right, bottom, left;
 
 /* mixins spacing */
 
-@function space($size: m) {
+@function size($size: m) {
     @return map.get($sizes, $size );
 }
 
 @mixin padding($size: m, $side: all) {
 
     @if list.index($sides, $side ) {
-        padding-#{$side}: space($size );
+        padding-#{$side}: size($size );
     }
 
     @else {
-        padding: space($size );
+        padding: size($size );
     }
 }
 
 @mixin margin($size: m, $side: all) {
 
     @if list.index($sides, $side ) {
-        margin-#{$side}: space($size );
+        margin-#{$side}: size($size );
     }
 
     @else {
-        margin: space($size );
+        margin: size($size );
     }
 }
 
@@ -145,6 +145,6 @@ $sides: top, right, bottom, left;
     @include rounded;
     background-color: var(--color);
     color: var(--background);
-    padding: space(s) space();
+    padding: size(s) size();
     @include transition("color, background-color");
 }

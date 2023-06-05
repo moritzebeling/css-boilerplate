@@ -68,7 +68,7 @@
 
     figure {
         figcaption {
-            margin-top: space( s );
+            margin-top: size( s );
         }
     }
 
@@ -99,6 +99,7 @@ p {
 pre {
     @include padding(m);
     @include font(mono);
+    @include font-size(s);
     overflow-x: scroll;
 }
 
