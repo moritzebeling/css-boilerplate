@@ -9,6 +9,10 @@
         }
 
         @include loop-grid($i - 1, $device );
+    } @else {
+        &.grid#{$device}-unset {
+            grid-template-columns: unset;
+        }
     }
 }
 
@@ -19,6 +23,10 @@
         }
 
         @include loop-columns($i - 1, $device );
+    } @else {
+        >.col#{$device}-unset {
+            grid-column-end: unset;
+        }
     }
 }
 
@@ -29,6 +37,10 @@
         }
 
         @include loop-rows($i - 1, $device );
+    } @else {
+        >.row#{$device}-unset {
+            grid-row-end: unset;
+        }
     }
 }
 
@@ -39,9 +51,7 @@
         }
 
         @include loop-order($i - 1, $device );
-    }
-
-    @else {
+    } @else {
         >.order#{$device}-unset {
             order: unset;
         }
@@ -55,9 +65,7 @@
         }
 
         @include loop-start($i - 1, $device );
-    }
-
-    @else {
+    } @else {
         >.start#{$device}-unset {
             grid-column-start: unset;
         }
