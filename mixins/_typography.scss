@@ -14,12 +14,17 @@
     text-transform: uppercase;
 }
 
-@mixin hyphens {
-    -webkit-hyphenate-limit-chars: auto 9;
+@mixin hyphens( $min: 5 ) {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    -webkit-hyphenate-limit-before: $min;
+    -webkit-hyphenate-limit-after: $min;
+        -ms-hyphenate-limit-chars: #{$min * 2} $min $min;
+            hyphenate-limit-chars: #{$min * 2} $min $min;
     -webkit-hyphenate-limit-lines: 2;
-    -ms-hyphenate-limit-chars: auto 9;
-    -ms-hyphenate-limit-lines: 1;
-    hyphens: auto;
+        -ms-hyphenate-limit-lines: 2;
+            hyphenate-limit-lines: 2;
 }
 
 @mixin underline($color: currentColor, $thickness: 1px, $offset: 0.15em) {
